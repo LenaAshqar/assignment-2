@@ -1,18 +1,20 @@
 :root{
-    --bg: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(120, 1%, 28%, 0.4));;
+    --bg: #f4f8ee;
     --fg: #000500;
     --muted: #2b2b3d;
     --accent: #420313;
     --color: #eff8e2;
     margin: 20px;
+    --cards: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(120, 1%, 28%, 0.4));
 }
 
 [data-theme="dark"]{
-    --bg: linear-gradient(135deg, hsl(345, 91%, 14%), hsla(90, 1%, 28%, 0.91));
+    --bg: rgba(0, 5, 0, 0.9);
     --fg: #e6eef8;
     --muted: #000500;
     --accent: #eff8e2;
     --color: #000500;
+    --cards: linear-gradient(135deg, hsl(345, 91%, 14%), hsla(90, 1%, 28%, 0.91));
 }
 
 *{
@@ -69,7 +71,7 @@ nav a{
 }
 
 .container-contact, .container-projects, .container-about {
-    background:var(--bg);
+    background:var(--cards);
     border: 1px solid rgba(0, 0, 0, 0.26);
     border-radius:12px;
     padding:1rem 1.25rem;
