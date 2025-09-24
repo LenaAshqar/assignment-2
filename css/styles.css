@@ -98,6 +98,11 @@ nav a:hover {
     box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
+/* adjustment for nav link titles being covered by header*/
+section {
+    scroll-margin-top: 100px;
+}
+
 .highlight{
     color:var(--accent)
 }
