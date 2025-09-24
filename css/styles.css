@@ -1,20 +1,20 @@
 :root{
-    --bg: #f4f8ee;
-    --fg: #000500;
-    --muted: #2b2b3d;
-    --accent: #162e33;
-    --color: #eff8e2;
+    --bg: #f4fafb;
+    --fg: #0b1618;
+    --muted: #226972;
+    --accent: #226972;
+    --color: #e7f2f4;
     margin: 20px;
-    --cards: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(120, 1%, 28%, 0.4));
+    --cards: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(187, 54%, 29%, 0.84));
 }
 
 [data-theme="dark"]{
     --bg: rgba(0, 5, 0, 0.9);
-    --fg: #e6eef8;
+    --fg: #e7f2f4;
     --muted: #000500;
     --accent: #eff8e2;
     --color: #000500;
-    --cards: linear-gradient(135deg, hsl(190, 40%, 14%), hsla(90, 1%, 28%, 0.91));
+    --cards: linear-gradient(135deg, hsl(190, 40%, 14%), hsla(187, 54%, 29%, 0.84));
 }
 
 body{
