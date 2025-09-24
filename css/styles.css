@@ -1,0 +1,40 @@
+:root{
+    --bg: #ffffff;
+    --fg: #121212;
+    --muted: #555;
+    --accent: #0066ff;
+}
+
+
+[data-theme="dark"]{
+    --bg: #0b0b0d;
+    --fg: #e6eef8;
+    --muted: #bfc8d6;
+}
+
+
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:var(--fg);line-height:1.5}
+.container{max-width:1000px;margin:0 auto;padding:1rem}
+.site-header{background:transparent;padding:.75rem 0}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+nav a{margin-left:1rem;text-decoration:none;color:var(--fg)}
+.logo{margin:0}
+.hero{padding:2rem 0}
+.hero-grid{display:grid;grid-template-columns:1fr 220px;gap:1rem;align-items:center}
+.profile-pic img{width:100%;max-width:200px;border-radius:12px}
+.highlight{color:var(--accent)}
+.btn{display:inline-block;padding:.5rem 1rem;background:var(--accent);color:white;border-radius:8px;text-decoration:none}
+.about, .projects, .contact{padding:2rem 0}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.project-card{background:rgba(0,0,0,0.03);padding:1rem;border-radius:8px}
+.project-card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
+.form-msg{margin-top:.5rem;color:var(--muted)}
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);padding:1rem 0;margin-top:2rem}
+
+
+/* Responsive */
+@media (max-width:700px){
+    .hero-grid{grid-template-columns:1fr}
+    nav{display:none}
+}

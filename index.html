@@ -1,49 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Portfolio — Assignment 1</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="script" href="js/script.js">
 </head>
-
 <body>
-    <div id="About Me">
-        <h2>About Me</h2>
-        <p>I am a junior software engineering student at KFUPM </p>
+<header class="site-header">
+    <div class="container">
+        <h1 class="logo">Your Name</h1>
+        <nav>
+            <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </div>
+</header>
 
-    <div id="Projects">
-        <h2>Projects</h2>
-        <p>SWE 206: Tutor Link</p>
-        <p>ICS 202: Image compression</p>
-        <p>COE 292: Classification Model</p>
-    </div>
 
-    <div id="Contact Me">
-        <h2>Contact Me</h2>
-        <div id="contactMeForm">
-            <form action="" method="post">
-                <div id="nameField">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="firstname" placeholder="Your name..">
-                </div>
-
-                <div id="emailField">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your email..">
-                </div>
-
-                <div id="messageField">
-                    <label for="message">Message</label>
-                    <input type="text" id="message" name="message" placeholder="Your message..">
-                </div>
-
-                <input type="submit" value="Submit">
-            </form>
+<main>
+    <section id="hero" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <p id="greeting" class="greeting">Hello!</p>
+                <h2>I'm <span class="highlight">Your Name</span></h2>
+                <p class="tagline">Web developer • Problem solver • Lifelong learner</p>
+                <a class="btn" href="#projects">See projects</a>
+            </div>
+            <div class="profile-pic">
+                <img src="assets/images/placeholder.png" alt="Profile placeholder">
+            </div>
         </div>
+    </section>
+
+
+    <section id="about" class="container about">
+        <h3>About Me</h3>
+        <p>Short 2–3 sentence intro about you. Mention your focus and one line tagline.</p>
+    </section>
+
+
+    <section id="projects" class="container projects">
+        <h3>Projects</h3>
+        <div class="project-grid">
+            <article class="project-card">
+                <img src="assets/number1.png" alt="Project 1">
+                <h4>Project One</h4>
+                <p>Short description of project one — what it does and tech used.</p>
+            </article>
+            <article class="project-card">
+                <img src="assets/number2.svg" alt="Project 2">
+                <h4>Project Two</h4>
+                <p>Short description of project two — highlight an interesting challenge.</p>
+            </article>
+        </div>
+    </section>
+
+
+    <section id="contact" class="container contact">
+        <h3>Contact</h3>
+        <form id="contactForm" novalidate>
+            <label for="name">Name</label>
+            <input id="name" name="name" required>
+
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+
+            <button type="submit" class="btn">Send</button>
+            <p id="formMsg" class="form-msg" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+
+<footer class="site-footer">
+    <div class="container">
+        <p>© <span id="year"></span> Your Name — Built with ❤️</p>
     </div>
+</footer>
+
+
+<script src="js/script.js"></script>
 </body>
 </html>
