@@ -76,6 +76,12 @@ nav a{
     text-decoration:none
 }
 
+#themeToggle img{
+    width: 32px;
+    height: 32px;
+    display: block; /* prevents tiny gaps under inline images */
+}
+
 .about, .projects, .contact{
     padding:2rem 0
 }

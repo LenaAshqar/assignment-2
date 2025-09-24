@@ -30,22 +30,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // Theme toggle
     const toggle = document.getElementById('themeToggle');
     const root = document.documentElement;
-    const sunSVG = '<img src="/assets/moon.png" alt="moon">'
-    const moonSVG ='<img src="/assets/sun.png" alt="sun">'
+    const moonSVG = '<img src="/assets/moon.png" alt="moon">'
+    const sunSVG ='<img src="/assets/sun.png" alt="sun">'
 
-// load saved theme
-    if(localStorage.getItem('theme') === 'dark') root.setAttribute('data-theme','dark');
-    toggle.addEventListener('click', ()=>{
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        if(isDark){
-            root.removeAttribute('data-theme');
-            localStorage.setItem('theme','light');
-            toggle.innerHTML = moonSVG;
-        } else {
-            root.setAttribute('data-theme','dark');
-            localStorage.setItem('theme','dark');
+// load saved theme and remember theme on refresh
+    function setTheme(theme) {
+        if (theme === "dark") {
+            root.setAttribute("data-theme", "dark");
             toggle.innerHTML = sunSVG;
+        } else {
+            root.setAttribute("data-theme", "light");
+            toggle.innerHTML = moonSVG;
         }
+        localStorage.setItem("theme", theme);
+    }
+
+// ✅ Restore on page load
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+
+// Toggle on click
+    toggle.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme");
+        setTheme(current === "dark" ? "light" : "dark");
     });
 
 
