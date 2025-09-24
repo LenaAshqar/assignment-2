@@ -6,6 +6,7 @@
     <title>My Portfolio — Assignment 1</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 <header class="site-header">
     <div class="container">
@@ -26,49 +27,50 @@
 <main>
     <section id="hero" class="hero">
         <div class="container hero-grid">
+            <div class="profile-pic">
+                <img src="assets/profilePicture.jpg" alt="Profile placeholder">
+            </div>
+
             <div>
                 <p id="greeting" class="greeting">Hello!</p>
                 <h2>I'm <span class="highlight">Lena Ashqar</span></h2>
                 <p class="tagline">Web developer • Problem solver • Lifelong learner</p>
                 <a class="btn" href="#projects">See projects</a>
             </div>
-            <div class="profile-pic">
-                <img src="assets/images/placeholder.png" alt="Profile placeholder">
-            </div>
         </div>
     </section>
 
 
-    <section id="about" class="container about">
+    <section id="about" class="container-about">
         <h3>About Me</h3>
         <p>I am a junior software engineer at KFUPM with a passion for making quality projects.
             I'm very interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.</p>
     </section>
 
 
-    <section id="projects" class="container projects">
+    <section id="projects" class="container-projects">
         <h3>Projects</h3>
         <div class="project-grid">
 
-            <article class="project-card">
+            <article class="project-card animate-on-scroll">
                 <img src="assets/number1.png" alt="Project 1">
                 <h4>Secure Webchat</h4>
                 <p>An authenticated web application for encrypting text messages using ChaCha20-Poly1305.</p>
             </article>
 
-            <article class="project-card">
+            <article class="project-card animate-on-scroll">
                 <img src="assets/number2.jpg" alt="Project 2">
                 <h4>Tutor Link</h4>
-                <p>A tutoring program to connect tutors with fellow classmates with an e-book and resource library.</p>
+                <p>A tutoring program to connect tutors with students including an e-book and resource library.</p>
             </article>
 
-            <article class="project-card">
-                <img src="assets/number2.svg" alt="Project 2">
+            <article class="project-card animate-on-scroll">
+                <img src="assets/number2.jpg" alt="Project 2">
                 <h4>Project Four</h4>
                 <p>Short description of project two — highlight an interesting challenge.</p>
             </article>
 
-            <article class="project-card">
+            <article class="project-card animate-on-scroll">
                 <img src="assets/number1.png" alt="Project 1">
                 <h4>Image Compression</h4>
                 <p>A computationally efficient image compressor that recursively divides the image in quarters.</p>
@@ -77,20 +79,24 @@
     </section>
 
 
-    <section id="contact" class="container contact">
+    <section id="contact" class="container-contact">
         <h3>Contact</h3>
         <form id="contactForm" novalidate>
-            <label for="name">Name</label>
-            <input id="name" name="name" required>
 
+            <div class="contact-form">
+                <label for="name">Name</label>
+                <input id="name" name="name" required>
+            </div>
 
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required>
+            <div class="contact-form">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+            </div>
 
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
+            <div class="contact-form">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
 
             <button type="submit" class="btn">Send</button>
             <p id="formMsg" class="form-msg" aria-live="polite"></p>

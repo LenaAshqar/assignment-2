@@ -1,6 +1,5 @@
 // Basic interactivity: theme toggle, smooth scroll, greeting, form validation
 
-
 document.addEventListener('DOMContentLoaded', ()=>{
 // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const moonSVG = '<img src="/assets/moon.png" alt="moon">'
     const sunSVG ='<img src="/assets/sun.png" alt="sun">'
 
-// load saved theme and remember theme on refresh
+// load saved theme
     function setTheme(theme) {
         if (theme === "dark") {
             root.setAttribute("data-theme", "dark");
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         localStorage.setItem("theme", theme);
     }
 
-// ✅ Restore on page load
+// Restore theme on page load
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
 
@@ -68,7 +67,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             formMsg.textContent = 'Please fill in all fields.';
             return;
         }
-// naive email check
+
+        // naive email check
         const emailOK = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
         if(!emailOK){
             formMsg.textContent = 'Please provide a valid email address.';
@@ -77,4 +77,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
         formMsg.textContent = 'Thanks — your message is ready to be sent! (No backend configured)';
         form.reset();
     });
+
+    // Scroll animation for project cards
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    const elementInView = (el, offset = 0) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset
+        );
+    };
+
+    const displayScrollElement = (el) => el.classList.add('visible');
+    const hideScrollElement = (el) => el.classList.remove('visible');
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach(el => {
+            if(elementInView(el, 100)) displayScrollElement(el);
+        //hide when out of view
+            else hideScrollElement(el);
+        });
+    };
+
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+
+    // Trigger animations on load
+    handleScrollAnimation();
 });

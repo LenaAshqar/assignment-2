@@ -1,5 +1,5 @@
 :root{
-    --bg: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(67, 8%, 80%, 0.91));;
+    --bg: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(120, 1%, 28%, 0.4));;
     --fg: #000500;
     --muted: #2b2b3d;
     --accent: #420313;
@@ -63,9 +63,18 @@ nav a{
 }
 
 .profile-pic img{
-    width:100%;
-    max-width:200px;
+    width:125%;
+    max-width:300px;
     border-radius:12px
+}
+
+.container-contact, .container-projects, .container-about {
+    background:var(--bg);
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius:12px;
+    padding:1rem 1.25rem;
+    margin-block-start: 1rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
 .highlight{
@@ -118,6 +127,11 @@ nav a{
 .site-footer{
     border-top:1px solid rgba(0,0,0,0.06);padding:1rem 0;margin-top:2rem}
 
+/* Scroll animation class */
+.project-card.visible{
+    opacity:1;
+    transform:translateY(0);
+}
 
 /* Responsive */
 @media (max-width:700px){
