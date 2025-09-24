@@ -1,14 +1,18 @@
 :root{
-    --bg: #ffffff;
-    --fg: #121212;
-    --muted: #555;
-    --accent: #0066ff;
+    --bg: linear-gradient(135deg, hsl(85, 61%, 93%), hsla(67, 8%, 80%, 0.91));;
+    --fg: #000500;
+    --muted: #2b2b3d;
+    --accent: #420313;
+    --color: #eff8e2;
+    margin: 20px;
 }
 
 [data-theme="dark"]{
-    --bg: #0b0b0d;
+    --bg: linear-gradient(135deg, hsl(345, 91%, 14%), hsla(90, 1%, 28%, 0.91));
     --fg: #e6eef8;
-    --muted: #bfc8d6;
+    --muted: #000500;
+    --accent: #eff8e2;
+    --color: #000500;
 }
 
 *{
@@ -72,7 +76,8 @@ nav a{
     display:inline-block;
     padding:.5rem 1rem;
     background:var(--accent);
-    color:white;border-radius:8px;
+    color: var(--color);
+    border-radius:8px;
     text-decoration:none
 }
 
