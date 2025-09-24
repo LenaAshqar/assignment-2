@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         form.reset();
     });
 
+
     // Scroll animation for project cards
     const scrollElements = document.querySelectorAll('.animate-on-scroll');
     const elementInView = (el, offset = 0) => {
@@ -88,20 +89,38 @@ document.addEventListener('DOMContentLoaded', ()=>{
     };
 
     const displayScrollElement = (el) => el.classList.add('visible');
-    const hideScrollElement = (el) => el.classList.remove('visible');
-
     const handleScrollAnimation = () => {
         scrollElements.forEach(el => {
-            if(elementInView(el, 100)) displayScrollElement(el);
-        //hide when out of view
-            else hideScrollElement(el);
+            if(elementInView(el, 500)) displayScrollElement(el);
         });
     };
 
-    window.addEventListener('scroll', () => {
-        handleScrollAnimation();
-    });
-
-    // Trigger animations on load
+    window.addEventListener('scroll', handleScrollAnimation());
     handleScrollAnimation();
+});
+
+// Scroll animation for skill cards
+document.addEventListener("DOMContentLoaded", () => {
+    const skills = document.querySelectorAll(".skill");
+
+    function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight && rect.bottom > 0
+        );
+    }
+
+    function animateSkills() {
+        skills.forEach(skill => {
+            if (isInViewport(skill)) {
+                skill.classList.add("visible");
+            } else {
+                skill.classList.remove("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", animateSkills);
+    window.addEventListener("resize", animateSkills);
+    animateSkills(); // Initial check
 });

@@ -70,7 +70,7 @@ nav a{
     border-radius:12px
 }
 
-.container-contact, .container-projects, .container-about {
+.container-contact, .container-projects, .container-about, .container-skills {
     background:var(--cards);
     border: 1px solid rgba(0, 0, 0, 0.26);
     border-radius:12px;
@@ -119,6 +119,50 @@ nav a{
     height:140px;
     object-fit:cover;
     border-radius:6px
+}
+
+#skills {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.skills-inner-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.skill.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+}
+
+.skill p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 .form-msg{
