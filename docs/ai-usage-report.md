@@ -1,0 +1,14 @@
+## AI Usage Report
+At first I built an empty skeleton with html code and trying to pin down what my content was instead of trying to design something. When I was done and had formed a mental image of what I wanted for the portfolio, I started three separate chats with OpenAI's ChatGPT and asked three different questions. I did this in three chats to keep things organized and not loose the responses. In the iterations after the first answer (especially from chat #1) I notice what ChatGPT edits and I apply similar edits on my own code. Although, this means the code ChatGPT works on becomes outdates, it allows me to understand what I am adding instead of blindly copying.
+
+### Chat #1
+In the first chat I asked how I can start building my personal portfolio as a software engineering student, with the intent to find places to search for templates or ideas outside of what the basic Google search I performed gave me. ChatGPT responded by giving me steps that weren't related to the technical implementation. It suggested I decide the purpose, pick a starting platform, structure the portfolio, get it online, then iterate and polish. One useful thing I learnt from this response was that I can deploy my site with GitHub Pages. I then asked for websites with templates and tried a few before I realized they weren't open-sourced and didn't work for me so I went back another time and asked for templates with code implementation. I noticed most suggestions came from GitHub so I started browsing templates there. 
+
+### Chat #2
+In the second chat I copied the assignment text and gave it to ChatGPT to create a basic starting point for my portfolio but with CSS and JS implementation. ChatGPT generated an interactive portfolio based on the suggestions given in the assignment which were a greeting depending on the time of day and a dark/light theme toggle. It also generated a README file which claimed the website was responsive but upon trying to resize my window it did not adjust the elements properly. The issue was fixed when I adjusted the margins. I asked ChatGPT to add a scroll animation for the project cards but the effect is barely visible
+
+### Chat #3
+I dedicated this chat to ask about smooth-scrolling animations and other complicated components I saw on my initial browse for portfolio ideas. I asked ChatGPT to generate code by providing a portfolio as an example and asking for how to implement smooth scrolling features. I made sure to ask for an explanation to how the code works so I can build on it the way I want.
+
+### Chat 4
+I used this chat for debugging and I started it when I found an icon I wanted to add but its format was svg and I didn't know how to implement it. It turned out to be useless because I found the icons as pngs then I discovered that when I refresh the website goes back to light mode and keeps the wrong icon so I debugged with ChatGPT.
