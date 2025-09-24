@@ -77,30 +77,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         formMsg.textContent = 'Thanks — your message is ready to be sent! (No backend configured)';
         form.reset();
     });
-
-
-    // Scroll animation for project cards
-    const scrollElements = document.querySelectorAll('.animate-on-scroll');
-    const elementInView = (el, offset = 0) => {
-        const elementTop = el.getBoundingClientRect().top;
-        return (
-            elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset
-        );
-    };
-
-    const displayScrollElement = (el) => el.classList.add('visible');
-    const handleScrollAnimation = () => {
-        scrollElements.forEach(el => {
-            if(elementInView(el, 500)) displayScrollElement(el);
-        });
-    };
-
-    window.addEventListener('scroll', handleScrollAnimation());
-    handleScrollAnimation();
 });
 
 // Scroll animation for skill cards
 document.addEventListener("DOMContentLoaded", () => {
+    const projects = document.querySelectorAll(".project-card");
     const skills = document.querySelectorAll(".skill");
 
     function isInViewport(el) {
@@ -108,6 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return (
             rect.top < window.innerHeight && rect.bottom > 0
         );
+    }
+
+    function animateProjects() {
+        projects.forEach(project => {
+            if (isInViewport(project)) {
+                project.classList.add("visible");
+            } else {
+                project.classList.remove("visible");
+            }
+        });
     }
 
     function animateSkills() {
@@ -119,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    window.addEventListener("scroll", animateProjects);
+    window.addEventListener("resize", animateProjects);
+    animateProjects(); // Initial check
 
     window.addEventListener("scroll", animateSkills);
     window.addEventListener("resize", animateSkills);
