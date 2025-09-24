@@ -17,10 +17,6 @@
     --cards: linear-gradient(135deg, hsl(190, 40%, 14%), hsla(90, 1%, 28%, 0.91));
 }
 
-*{
-    box-sizing:border-box
-}
-
 body{
     margin:0;
     font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
@@ -29,24 +25,41 @@ body{
     line-height:1.5}
 
 .container{
-    max-width:1000px;margin:0 auto;padding:1rem
+    max-width:1000px;
+    margin:0 auto;
+    padding:1rem
 }
 
 .site-header{
-    background:transparent;
-    padding:.75rem 0
+    background:var(--bg);
+    padding:.75rem 0;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:100;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
 .site-header .container{
-    display:flex;
-    align-items:center;
-    justify-content:space-between
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
 }
 
 nav a{
-    margin-left:1rem;
-    text-decoration:none;
-    color:var(--fg)
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--fg);
+    font-weight: 500;
+    transition: all 0.3s ease; /* smooth effect */
+}
+
+nav a:hover {
+    color: var(--accent);
+    transform: translateY(-2px); /* slight lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); /* shadow on hover */
 }
 
 .logo{
@@ -54,22 +67,28 @@ nav a{
 }
 
 .hero{
-    padding:2rem 0
+    padding:6rem 0 2rem 0
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1fr 220px;
+    grid-template-columns:1fr 600px;
     gap:1rem;
     align-items:center
 }
 
 .profile-pic img{
+    box-sizing: content-box;
     width:125%;
     max-width:300px;
     border-radius:12px
 }
 
+.hero-text{
+    margin:2rem 0 2rem 0
+}
+
+/* cards for each section */
 .container-contact, .container-projects, .container-about, .container-skills {
     background:var(--cards);
     border: 1px solid rgba(0, 0, 0, 0.26);
@@ -83,25 +102,36 @@ nav a{
     color:var(--accent)
 }
 
+/*buttons*/
 .btn{
     display:inline-block;
     padding:.5rem 1rem;
     background:var(--accent);
     color: var(--color);
     border-radius:8px;
-    text-decoration:none
+    text-decoration:none;
+    cursor: pointer;
+    transition: all 0.3s ease; /* smooth effect */
 }
 
+.btn:hover {
+    transform: translateY(-2px); /* slight lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* shadow on hover */
+}
+
+
+/* Dark theme button img*/
 #themeToggle img{
     width: 32px;
     height: 32px;
     display: block; /* prevents tiny gaps under inline images */
 }
 
-.about, .projects, .contact{
+.about, .projects, .contact, .skills{
     padding:2rem 0
 }
 
+/* Project related styling */
 .project-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -124,23 +154,13 @@ nav a{
     border-radius:6px
 }
 
+/* for animation */
 .project-card.visible{
     opacity:1;
     transform:translateY(0);
 }
 
-#skills {
-    padding: 5rem 2rem;
-    text-align: center;
-    background-color: #1a1a1a;
-    color: white;
-}
-
-#skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
+/* Skill related styling */
 .skills-inner-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -157,11 +177,6 @@ nav a{
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.skill.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .skill img {
     width: 60px;
     height: 60px;
@@ -173,13 +188,52 @@ nav a{
     margin-top: 0.5rem;
 }
 
+/* for animation */
+.skill.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contact form grid layout */
+#contactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two equal columns */
+    gap: 1rem 2rem; /* row gap, column gap */
+}
+
+/* Each field wrapper */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+}
+
+/* Make message span across both columns */
+.form-group.full-width {
+    grid-column: span 2;
+    width: 100%;
+}
+
+/* Uniform input/textarea styling */
+#contactForm input,
+#contactForm textarea {
+    width: 90%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
 .form-msg{
     margin-top:.5rem;
     color:var(--muted)
 }
 
 .site-footer{
-    border-top:1px solid rgba(0,0,0,0.06);padding:1rem 0;margin-top:2rem}
+    border-top:1px solid rgba(0,0,0,0.06);
+    padding:1rem 0;
+    margin-top:2rem
+}
 
 /* Responsive */
 @media (max-width:700px){

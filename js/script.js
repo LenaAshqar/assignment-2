@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 });
 
-// Scroll animation for skill cards
+// Scroll animation for skill cards and projects
 document.addEventListener("DOMContentLoaded", () => {
     const projects = document.querySelectorAll(".project-card");
     const skills = document.querySelectorAll(".skill");
