@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // Theme toggle
     const toggle = document.getElementById('themeToggle');
     const root = document.documentElement;
+    const sunSVG = '<img src="/assets/moon.png" alt="moon">'
+    const moonSVG ='<img src="/assets/sun.png" alt="sun">'
+
 // load saved theme
     if(localStorage.getItem('theme') === 'dark') root.setAttribute('data-theme','dark');
     toggle.addEventListener('click', ()=>{
@@ -37,11 +40,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(isDark){
             root.removeAttribute('data-theme');
             localStorage.setItem('theme','light');
-            toggle.textContent = '🌙';
+            toggle.innerHTML = moonSVG;
         } else {
             root.setAttribute('data-theme','dark');
             localStorage.setItem('theme','dark');
-            toggle.textContent = '☀️';
+            toggle.innerHTML = sunSVG;
         }
     });
 
