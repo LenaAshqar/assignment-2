@@ -5,15 +5,14 @@ import "../FrostedGlass.css";
 const Contact = () => {
     return (
         <section id="contact" className="container-contact">
-            <div className="frostedGlass">
                 <h3>Contact Me</h3>
                 <form id="contactForm" noValidate>
-                    <div className="form-group">
+                    <div className="form-group half-width">
                         <label htmlFor="name">Name</label>
                         <input id="name" name="name" required />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group half-width">
                         <label htmlFor="email">Email</label>
                         <input id="email" name="email" type="email" required />
                     </div>
@@ -23,12 +22,14 @@ const Contact = () => {
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
 
-                    <button type="submit" className="btn">
+                    <div className="button-row">
+                        <button type="submit" className="btn">
                         Send
-                    </button>
+                        </button>
+                    </div>
+
                     <p id="formMsg" className="form-msg" aria-live="polite"></p>
                 </form>
-            </div>
         </section>
     );
 };

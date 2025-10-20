@@ -1,23 +1,23 @@
 .container-about {
-    padding: 10px 10px;
-    text-align: left;
+    background: linear-gradient(135deg, rgba(224, 234, 252, 0.11), rgba(231, 239, 255, 0.08));
+    padding: 20px 20px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .container-about h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 .container-about p {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
-    color: #555;
-}
-
-.container-about .frostedGlass {
-    margin: 0 auto;
-    max-width: 1080px;
+    color: #ffffff;
+    text-align: left;
 }

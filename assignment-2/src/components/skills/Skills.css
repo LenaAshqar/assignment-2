@@ -1,28 +1,33 @@
 .container-skills {
+    background: linear-gradient(135deg, rgba(224, 234, 252, 0.11), rgba(231, 239, 255, 0.08));
     padding: 20px 20px;
-    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     text-align: center;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
 }
 
 .container-skills h3 {
     font-size: 2rem;
     margin-bottom: 40px;
-    color: #333;
+    color: #ffffff;
 }
 
 .skills-inner-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
+    gap: 5px;
     justify-items: center;
 }
 
 .skill {
+    min-width: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 15px;
+    gap: 20px;
+    padding: 10px;
     background: linear-gradient(135deg, rgba(224, 234, 252, 0.49), rgba(183, 201, 234, 0.3));
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -36,7 +41,7 @@
 
 .skill p {
     font-size: 1rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .skill:hover {

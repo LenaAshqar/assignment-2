@@ -15,8 +15,6 @@ import Contact from "./components/contact/Contact.jsx";
 
 
 function App() {
-    const [count, setCount] = useState(0)
-
     const items = [
         {
             label: "About",
@@ -51,7 +49,7 @@ function App() {
   return (
       <div>
           <Aurora
-              colorStops={["#ff29a9", "#ffcb1f", "#139cf1"]}
+              colorStops={["#fa027e", "#7549a1", "#0068f3"]}
               blend={0.5}
               amplitude={2.0}
               speed={0.5}
@@ -67,28 +65,12 @@ function App() {
 
               <div className="App-content">
                   <About />
-                  <Projects />
                   <Skills />
+                  <Projects />
                   <Contact />
               </div>
           </div>
 
-
-          <h1>Vite + React</h1>
-
-          <div className="card">
-              <button onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-              </button>
-
-              <p>
-                  Edit <code>src/App.jsx</code> and save to test HMR
-              </p>
-          </div>
-
-          <p className="read-the-docs">
-              Click on the Vite and React logos to learn more
-          </p>
       </div>
   )
 }
