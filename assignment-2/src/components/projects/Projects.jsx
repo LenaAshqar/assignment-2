@@ -4,6 +4,7 @@ import number1 from "C:/Users/Administrator/WebstormProjects/assignment-2/assign
 import number2 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number2.png";
 import number3 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number3.png";
 import number4 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number4.png";
+import ProjectCard from "./ProjectCard.jsx";
 
 const Projects = () => {
     const projects = [
@@ -38,11 +39,7 @@ const Projects = () => {
             <h3>Projects</h3>
             <div className="project-grid">
                 {projects.map((project, index) => (
-                    <article key={index} className="project-card">
-                        <img src={project.img} alt={project.title} />
-                        <h4>{project.title}</h4>
-                        <p>{project.description}</p>
-                    </article>
+                    <ProjectCard key={index} {...project} />
                 ))}
             </div>
         </section>

@@ -6,6 +6,7 @@ import sqlLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assign
 import htmlLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/html.png";
 import cssLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/css.png";
 import jsLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/js.png";
+import Skill from "./Skill.jsx";
 
 const Skills = () => {
     const skills = [
@@ -22,10 +23,7 @@ const Skills = () => {
             <h3>Skills</h3>
             <div className="skills-inner-container">
                 {skills.map((skill, index) => (
-                    <div key={index} className="skill">
-                        <img src={skill.img} alt={skill.name} />
-                        <p>{skill.name}</p>
-                    </div>
+                    <Skill key={index} {...skill} />
                 ))}
             </div>
         </section>
