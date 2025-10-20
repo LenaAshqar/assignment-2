@@ -57,19 +57,22 @@ function App() {
               speed={0.5}
           />
 
-          <CardNav
-              items={items}
-              baseColor="#fff"
-              menuColor="#000"
-              ease="power3.out"
-          />
+          <div className="App">
+              <CardNav
+                  items={items}
+                  baseColor="#fff"
+                  menuColor="#000"
+                  ease="power3.out"
+              />
 
-          <div>
-              <About />
-              <Projects />
-              <Skills />
-              <Contact />
+              <div className="App-content">
+                  <About />
+                  <Projects />
+                  <Skills />
+                  <Contact />
+              </div>
           </div>
+
 
           <h1>Vite + React</h1>
 
