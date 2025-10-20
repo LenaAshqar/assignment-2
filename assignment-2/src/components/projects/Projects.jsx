@@ -34,6 +34,18 @@ const Projects = () => {
             description:
                 "A computationally efficient image compressor that recursively divides the image in quarters.",
         },
+        {
+            img: number4,
+            title: "Example",
+            description:
+                "A computationally efficient image compressor that recursively divides the image in quarters.",
+        },
+        {
+            img: number4,
+            title: "Example",
+            description:
+                "A computationally efficient image compressor that recursively divides the image in quarters.",
+        },
     ];
 
     return (

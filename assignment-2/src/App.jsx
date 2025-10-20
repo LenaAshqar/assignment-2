@@ -1,8 +1,3 @@
-import { useState } from 'react'
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
 import CardNav from './components/nav/CardNav'
 import Aurora from './components/background/Aurora.jsx';
 
@@ -11,8 +6,7 @@ import About from "./components/about/About.jsx";
 import Projects from "./components/projects/Projects.jsx";
 import Skills from "./components/skills/Skills.jsx";
 import Contact from "./components/contact/Contact.jsx";
-
-
+import GradualBlur from './components/GradualBlur/GradualBlur.jsx';
 
 function App() {
     const items = [
@@ -64,13 +58,12 @@ function App() {
               />
 
               <div className="App-content">
-                  <About />
-                  <Skills />
-                  <Projects />
-                  <Contact />
+                    <About />
+                    <Skills />
+                    <Projects />
+                    <Contact />
               </div>
           </div>
-
       </div>
   )
 }
