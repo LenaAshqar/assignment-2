@@ -1,0 +1,72 @@
+.container-contact {
+    padding: 20px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.container-contact h3 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.container-contact .frostedGlass {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button.btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #0056b3;
+}
+
+.form-msg {
+    margin-top: 10px;
+    color: green;
+    font-weight: 500;
+}

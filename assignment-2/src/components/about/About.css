@@ -1,0 +1,23 @@
+.container-about {
+    padding: 10px 10px;
+    text-align: left;
+}
+
+.container-about h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.container-about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+}
+
+.container-about .frostedGlass {
+    margin: 0 auto;
+    max-width: 1080px;
+}

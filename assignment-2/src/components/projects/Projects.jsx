@@ -5,6 +5,8 @@ import number2 from "C:/Users/Administrator/WebstormProjects/assignment-2/assign
 import number3 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number3.png";
 import number4 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number4.png";
 import ProjectCard from "./ProjectCard.jsx";
+import "./Projects.css";
+
 
 const Projects = () => {
     const projects = [

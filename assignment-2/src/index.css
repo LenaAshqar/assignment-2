@@ -13,6 +13,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    align-items: center; /* center horizontally if needed */
+    gap: 60px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.App-content {
+    top: 120px;
+    position: absolute;
+    display: flex;
+    flex-direction: column; /* stack components vertically */
+    width: 100%;
+    gap: 60px; /* space between components */
+    padding: 40px 20px;
+    align-items: center; /* center content horizontally */
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;

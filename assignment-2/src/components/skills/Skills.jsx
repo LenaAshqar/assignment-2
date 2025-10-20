@@ -1,4 +1,3 @@
-// src/components/Skills.jsx
 import React from "react";
 import pythonLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/python.png";
 import javaLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/java.png";
@@ -7,6 +6,7 @@ import htmlLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assig
 import cssLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/css.png";
 import jsLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/js.png";
 import Skill from "./Skill.jsx";
+import "./Skills.css";
 
 const Skills = () => {
     const skills = [
