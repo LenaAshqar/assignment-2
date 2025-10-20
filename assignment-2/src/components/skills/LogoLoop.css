@@ -2,7 +2,7 @@
     position: relative;
     overflow-x: hidden;
 
-    --logoloop-gap: 32px;
+    --logoloop-gap: 16px;
     --logoloop-logoHeight: 28px;
     --logoloop-fadeColorAuto: #151010;
 }
@@ -31,8 +31,10 @@
 }
 
 .logoloop__item {
+    visibility: hidden;
     flex: 0 0 auto;
     margin-right: var(--logoloop-gap);
+    margin-left: var(--logoloop-gap);
     font-size: var(--logoloop-logoHeight);
     line-height: 1;
 }
@@ -47,6 +49,7 @@
 }
 
 .logoloop__item img {
+    visibility: visible;
     height: var(--logoloop-logoHeight);
     width: auto;
     display: block;
