@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // Theme toggle
     const toggle = document.getElementById('themeToggle');
     const root = document.documentElement;
-    const moonSVG = '<img src="/assets/moon.png" alt="moon">'
-    const sunSVG ='<img src="/assets/sun.png" alt="sun">'
+    const moonSVG = '<img src="/old/assetssets/moon.png" alt="moon">'
+    const sunSVG ='<img src="/old/assetssets/sun.png" alt="sun">'
 
 // load saved theme
     function setTheme(theme) {
