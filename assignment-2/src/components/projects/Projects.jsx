@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import number1 from '../../assets/number1.png';
 import number2 from '../../assets/number2.png';
 import number3 from '../../assets/number3.png';
@@ -65,6 +65,7 @@ const sortProjects = (items, sortKey) => {
 const Projects = () => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [sortKey, setSortKey] = useState('latest');
+    const [expandedProject, setExpandedProject] = useState(null);
 
     const categories = useMemo(() => ['All', ...new Set(projects.map(project => project.category))], []);
 
@@ -75,6 +76,10 @@ const Projects = () => {
                 : projects.filter(project => project.category === activeFilter);
 
         return sortProjects(filtered, sortKey);
+    }, [activeFilter, sortKey]);
+
+    useEffect(() => {
+        setExpandedProject(null);
     }, [activeFilter, sortKey]);
 
     return (

@@ -2,12 +2,29 @@ import { useId, useState } from 'react';
 import { FiArrowUpRight, FiChevronDown } from 'react-icons/fi';
 import './Projects.css';
 
-const ProjectCard = ({ image, title, description, tags = [], year, link, className = '', ...rest }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+const ProjectCard = ({
+                         image,
+                         title,
+                         description,
+                         tags = [],
+                         year,
+                         link,
+                         className = '',
+                         isExpanded: isExpandedProp,
+                         onToggle,
+                         ...rest
+                     }) => {
+    const [internalExpanded, setInternalExpanded] = useState(false);
+    const isControlled = typeof isExpandedProp === 'boolean';
+    const isExpanded = isControlled ? isExpandedProp : internalExpanded;
     const detailsId = useId();
 
     const handleToggle = () => {
-        setIsExpanded(previous => !previous);
+        if (isControlled) {
+            onToggle?.();
+        } else {
+            setInternalExpanded(previous => !previous);
+        }
     };
 
     return (
@@ -27,7 +44,7 @@ const ProjectCard = ({ image, title, description, tags = [], year, link, classNa
                     <span className="project-title">{title}</span>
                     <FiChevronDown aria-hidden="true" />
                 </button>
-                <div id={detailsId} className="project-details" hidden={!isExpanded}>
+                <div id={detailsId} className={`project-details ${isExpanded ? 'is-open' : ''}`.trim()} hidden={!isExpanded}>
                     <p>{description}</p>
                     {tags.length > 0 && (
                         <ul className="project-tags" role="list">
