@@ -191,7 +191,7 @@ function App() {
                             </h1>
 
                             <p className="hero-description">
-                                Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
+                                Interested in traversing the diverse domains in which software can be applied and exploring the world of quantum computing.
                             </p>
 
                             <div className="hero-actions">
