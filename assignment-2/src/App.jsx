@@ -6,6 +6,7 @@ import Projects from './components/projects/Projects.jsx';
 import Skills from './components/skills/Skills.jsx';
 import Contact from './components/contact/Contact.jsx';
 import ClickSpark from './components/clickspark/ClickSpark.jsx';
+import LetterGlitch from './components/letterglitch/LetterGlitch.jsx';
 
 const NAV_ITEMS = [
     { label: 'About', href: '#about' },
@@ -80,23 +81,7 @@ function App() {
 
                         </div>
                     </div>
-
-
-                    <div className="hero-card" aria-labelledby="hero-highlight">
-
-                        <div className="hero-image">
-                            <img src={heroPortrait} alt="Abdulhadi smiling" />
-                        </div>
-
-                        <div className="hero-highlight" id="hero-highlight">
-                            <h2>Curious by design.</h2>
-                            <p>
-                                Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
-                            </p>
-                        </div>
-
-                    </div>
-
+                    <LetterGlitch />
                 </div>
             </header>
 
