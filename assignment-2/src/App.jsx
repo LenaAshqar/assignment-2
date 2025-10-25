@@ -1,6 +1,5 @@
 import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import './App.css';
-import heroPortrait from './assets/profilePicture.jpg';
 import About from './components/about/About.jsx';
 import Projects from './components/projects/Projects.jsx';
 import Skills from './components/skills/Skills.jsx';
@@ -36,7 +35,7 @@ function App() {
             <header className="hero" id="home">
                 <nav className="site-nav">
                     <a href="#home" className="brand" aria-label="Home">
-                        AH
+                        LA
                     </a>
 
                     <div className="nav-links" role="list">
