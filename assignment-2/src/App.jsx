@@ -81,86 +81,6 @@ function App() {
         return () => window.clearInterval(interval);
     }, []);
 
-    useEffect(() => {
-        if (typeof window === 'undefined') {
-            return undefined;
-        }
-
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.2,
-                rootMargin: '0px 0px -10%'
-            }
-        );
-
-        const registerElement = element => {
-            if (!(element instanceof HTMLElement) || element.dataset.animateBound === 'true') {
-                return;
-            }
-
-            observer.observe(element);
-            element.dataset.animateBound = 'true';
-
-            const rect = element.getBoundingClientRect();
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-            if (rect.top <= viewportHeight * 0.9) {
-                element.classList.add('is-visible');
-                observer.unobserve(element);
-            }
-        };
-
-        document.querySelectorAll('[data-animate]').forEach(registerElement);
-
-        const root = document.documentElement;
-        let animationsReadyApplied = false;
-        const rafId = window.requestAnimationFrame(() => {
-            animationsReadyApplied = true;
-            animationReadyMounts += 1;
-            root.classList.add(ANIMATIONS_READY_CLASS);
-        });
-
-        const mutationObserver = new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-                mutation.addedNodes.forEach(node => {
-                    if (!(node instanceof HTMLElement)) {
-                        return;
-                    }
-
-                    if (node.matches('[data-animate]')) {
-                        registerElement(node);
-                    }
-
-                    node.querySelectorAll?.('[data-animate]').forEach(registerElement);
-                });
-            });
-        });
-
-        if (document.body) {
-            mutationObserver.observe(document.body, { childList: true, subtree: true });
-        }
-
-        return () => {
-            window.cancelAnimationFrame(rafId);
-            mutationObserver.disconnect();
-            observer.disconnect();
-            if (animationsReadyApplied) {
-                animationReadyMounts = Math.max(0, animationReadyMounts - 1);
-                if (animationReadyMounts === 0) {
-                    root.classList.remove(ANIMATIONS_READY_CLASS);
-                }
-            }
-        };
-    }, []);
-
     const ThemeIcon = useMemo(() => (theme === 'dark' ? FiSun : FiMoon), [theme]);
 
     const handleThemeToggle = () => {
@@ -177,73 +97,79 @@ function App() {
                 duration={400}
             >
             <div className="app-background" aria-hidden="true" />
-
-            <header className="hero" id="home">
-                <nav className="site-nav">
-                    <a href="#home" className="brand" aria-label="Home">
-                        LA
-                    </a>
-
-                    <div className="nav-links" role="list">
-                        {NAV_ITEMS.map(item => (
-                            <a key={item.label} href={item.href} role="listitem">
-                                {item.label}
-                            </a>
-                        ))}
-                    </div>
-
-                    <div className="nav-actions">
-                        <button
-                            type="button"
-                            className="theme-toggle"
-                            onClick={handleThemeToggle}
-                            aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} mode`}
-                        >
-                            <ThemeIcon aria-hidden="true" />
-                        </button>
-
-                        <a className="nav-cta" href="#contact">
-                            Let&apos;s talk
+                <header className="hero" id="home">
+                    <nav className="site-nav">
+                        <a href="#home" className="brand" aria-label="Home">
+                            LA
                         </a>
-                    </div>
-                </nav>
 
-                <div className="hero-grid">
-                    <div className="hero-copy" data-animate="fade-up">
-                        <span className="hero-greeting">{greeting}, I&apos;m Leena Al Ashqar.</span>
-
-                        <h1>
-                            <span className="eyebrow">Junior software engineering student</span>
-                            <span className="hero-headline">
-                                Building human-centred experiences that balance delightful UI with resilient engineering.
-                            </span>
-                        </h1>
-
-                        <p className="hero-description">
-                            Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
-                        </p>
-
-                        <div className="hero-actions">
-
-                            <a className="primary-link" href="#projects">
-                                View projects
-                                <FiArrowUpRight aria-hidden="true" />
-                            </a>
-
-                            <div className="social-links" role="list">
-                                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                                    <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer noopener' : undefined} aria-label={label} role="listitem">
-                                        <Icon aria-hidden="true" />
-                                    </a>
-                                ))}
-                            </div>
-
+                        <div className="nav-links" role="list">
+                            {NAV_ITEMS.map(item => (
+                                <a key={item.label} href={item.href} role="listitem">
+                                    {item.label}
+                                </a>
+                            ))}
                         </div>
-                    </div>
-                    <div className="letter-glitch-card" data-animate="fade-up">
-                        <LetterGlitch className="letter-glitch" />
-                    </div>
-                </div>
+
+                        <div className="nav-actions">
+                            <button
+                                type="button"
+                                className="theme-toggle"
+                                onClick={handleThemeToggle}
+                                aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                            >
+                                <ThemeIcon aria-hidden="true" />
+                            </button>
+
+                            <a className="nav-cta" href="#contact">
+                                Let&apos;s talk
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div className="hero-grid">
+                        <div className="hero-copy">
+                            <span className="eyebrow">Junior software engineering student</span>
+
+                            <h1>
+                                <span className="hero-greeting">{greeting}, I&apos;m Leena Al Ashqar.</span>
+                                <span className="hero-headline">
+                                    Building human-centred experiences that balance delightful UI with resilient engineering.
+                                </span>
+                            </h1>
+
+                            <p className="hero-description">
+                                Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
+                            </p>
+
+                            <div className="hero-actions">
+                                <a className="primary-link" href="#projects">
+                                    View projects
+                                    <FiArrowUpRight aria-hidden="true" />
+                                </a>
+
+                                <div className="social-links" role="list">
+                                    {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                                        <a
+                                            key={label}
+                                            href={href}
+                                            target={href.startsWith('http') ? '_blank' : undefined}
+                                            rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
+                                            aria-label={label}
+                                            role="listitem"
+                                        >
+                                            <Icon aria-hidden="true" />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="letter-glitch-card">
+                            <LetterGlitch className="letter-glitch" />
+                            </div>
+                        </div>
+
             </header>
 
             <main className="page-content">
