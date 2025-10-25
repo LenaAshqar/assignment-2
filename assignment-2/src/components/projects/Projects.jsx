@@ -79,7 +79,7 @@ const Projects = () => {
 
     return (
         <section id="projects" className="section projects-section">
-            <div className="section-inner" data-animate="fade">
+            <div className="section-inner">
                 <div className="section-header">
                     <span className="section-eyebrow">Selected work</span>
                     <h2 className="section-title">Projects shaped by experimentation and polish.</h2>
@@ -117,18 +117,16 @@ const Projects = () => {
 
                 {visibleProjects.length > 0 ? (
                     <div className="project-grid">
-                        {visibleProjects.map((project, index) => (
+                        {visibleProjects.map(project => (
                             <ProjectCard
                                 key={project.title}
                                 {...project}
-                                data-animate="fade-up"
-                                style={{ '--reveal-index': index }}
                                 year={String(project.year)}
                             />
                         ))}
                     </div>
                 ) : (
-                    <div className="projects-empty" role="status" aria-live="polite" data-animate="fade-up">
+                    <div className="projects-empty" role="status" aria-live="polite">
                         <h3>No projects found</h3>
                         <p>Try choosing another filter or reset your sorting preference.</p>
                     </div>

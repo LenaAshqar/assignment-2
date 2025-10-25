@@ -152,9 +152,43 @@
     gap: 0.85rem;
 }
 
-.project-body h3 {
-    margin: 0;
+.project-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.25rem 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
     font-size: 1.35rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+}
+
+.project-toggle:focus-visible {
+    outline: 2px solid var(--accent-outline);
+    outline-offset: 2px;
+}
+
+.project-title {
+    flex: 1 1 auto;
+}
+
+.project-toggle svg {
+    transition: transform 0.3s ease;
+}
+
+.project-toggle.is-open svg {
+    transform: rotate(-180deg);
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
 }
 
 .project-body p {
