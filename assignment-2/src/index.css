@@ -23,6 +23,8 @@
     --chip-active-bg: rgba(250, 2, 126, 0.24);
     --chip-active-border: rgba(250, 2, 126, 0.65);
     --projects-empty-bg: rgba(10, 8, 26, 0.7);
+    --reveal-index: 0;
+    --reveal-translate: 24px;
     font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     font-weight: 400;
