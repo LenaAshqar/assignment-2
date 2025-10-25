@@ -1,7 +1,7 @@
 # 🪄 SWE 363 – Assignment 2
 
 > ✨ A simple, responsive **personal portfolio web application** built as part of the SWE 363 course.  
-> 🌗 Featuring a **dark/light theme**, time-based greetings, and modern responsive design.
+> 🌗 Featuring a **dark/light theme**, time-based greetings, project filtering and sorting, simple form validation, and modern responsive design.
 
 ---
 
@@ -17,6 +17,7 @@ This project implements a **personal portfolio** website to showcase:
 - Responsive layout supporting mobile, tablet, and desktop.
 - Dark/Light theme toggle.
 - Time-based greeting (e.g., “Good morning”, “Good evening”).
+- Project filtering and sorting.
 - Simple frontend-only contact form.
 - Clean and structured sections to highlight content effectively.
 
