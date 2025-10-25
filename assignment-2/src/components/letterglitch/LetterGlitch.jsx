@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const LetterGlitch = ({
                           glitchColors = ['#b50f7a', '#2981c7', '#6e308b'],
@@ -15,6 +15,7 @@ const LetterGlitch = ({
     const grid = useRef({ columns: 0, rows: 0 });
     const context = useRef(null);
     const lastGlitchTime = useRef(Date.now());
+    const [bgColor, setBgColor] = useState('#050213');
 
     const lettersAndSymbols = Array.from(characters);
 
@@ -171,6 +172,24 @@ const LetterGlitch = ({
     };
 
     useEffect(() => {
+        const updateBgColor = () => {
+            const rootStyles = getComputedStyle(document.documentElement);
+            const color = rootStyles.getPropertyValue('--background').trim();
+            if (color) setBgColor(color);
+        };
+
+        updateBgColor();
+
+        const observer = new MutationObserver(updateBgColor);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -202,7 +221,7 @@ const LetterGlitch = ({
         position: 'relative',
         width: '100%',
         height: '100%',
-        backgroundColor: '#050213',
+        backgroundColor: bgColor,
         overflow: 'hidden'
     };
 
@@ -219,7 +238,7 @@ const LetterGlitch = ({
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-        background: 'radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(5,2,19,1) 100%)'
+        background: `radial-gradient(circle, rgba(0,0,0,0) 60%, ${bgColor} 100%)`
     };
 
     const centerVignetteStyle = {
@@ -229,7 +248,7 @@ const LetterGlitch = ({
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-        background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%)'
+        background: `radial-gradient(circle, rgba(0,0,0,0) 0%, ${bgColor} 60%)`
     };
 
     return (

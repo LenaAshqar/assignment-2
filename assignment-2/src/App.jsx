@@ -93,6 +93,14 @@ function App() {
 
             observer.observe(element);
             element.dataset.animateBound = 'true';
+
+            const rect = element.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top <= viewportHeight * 0.9) {
+                element.classList.add('is-visible');
+                observer.unobserve(element);
+            }
         };
 
         document.querySelectorAll('[data-animate]').forEach(registerElement);
