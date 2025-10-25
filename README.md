@@ -27,7 +27,7 @@ This project implements a responsive portfolio web application to showcase proje
 
 2. Cd into the project directory
    ```bash  
-   cd "filepath/assignemnt-2"
+   cd "filepath/assignment-2"
 
 3. Install npm  
    ```bash  
