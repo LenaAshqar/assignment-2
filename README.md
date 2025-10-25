@@ -20,6 +20,21 @@ This project implements a responsive portfolio web application to showcase proje
 - Used Codex for updating website design by providing examples of the desired output  
 - See `ai-usage-report.md` for a more detailed breakdown  
 
+## File Structure  
+   assignment-2
+   │
+   │   README.md
+   └─ /assignment-2  
+      │  .gitignore  
+      │  package.json  
+      │  package-lock.json  
+      │  ai-usage-report.md  
+      └─ src/              ← source code  
+         ├─ components/    
+         ├─ styles/        
+         └─ assets/        
+
+
 ## Setup & Local Run  
 1. Clone the repository  
    ```bash  
@@ -27,7 +42,7 @@ This project implements a responsive portfolio web application to showcase proje
 
 2. Cd into the project directory
    ```bash  
-   cd "filepath/assignment-2"
+   cd "/assignment-2"
 
 3. Install npm  
    ```bash  
