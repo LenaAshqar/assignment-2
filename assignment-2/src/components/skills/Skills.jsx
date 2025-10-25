@@ -42,9 +42,10 @@ const skills = [
 
 const Skills = () => (
     <section id="skills" className="section skills-section">
-        <div className="section-inner">
+        <div className="section-inner" data-animate="fade">
 
-            <div className="section-header">
+
+        <div className="section-header">
                 <span className="section-eyebrow">Skills</span>
                 <h2 className="section-title">Tools that turn ideas into polished products.</h2>
                 <p className="section-description">
@@ -54,8 +55,13 @@ const Skills = () => (
             </div>
 
             <div className="skills-grid">
-                {skills.map(skill => (
-                    <article key={skill.name} className="skill-card surface-card">
+                {skills.map((skill, index) => (
+                    <article
+                        key={skill.name}
+                        className="skill-card surface-card"
+                        data-animate="fade-up"
+                        style={{ '--reveal-index': index }}
+                    >
                         <span className="skill-icon">
                             <img src={skill.icon} alt={`${skill.name} logo`} />
                         </span>

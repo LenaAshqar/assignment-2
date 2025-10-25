@@ -78,3 +78,17 @@
     color: var(--text-secondary);
     line-height: 1.65;
 }
+
+[data-theme='light'] .skill-card::before {
+    background: radial-gradient(circle at top, rgba(0, 104, 243, 0.22), transparent 65%);
+}
+
+[data-theme='light'] .skill-card:hover,
+[data-theme='light'] .skill-card:focus-within {
+    box-shadow: 0 20px 40px rgba(36, 44, 92, 0.2);
+}
+
+[data-theme='light'] .skill-icon {
+    background: rgba(12, 22, 64, 0.08);
+    border: 1px solid rgba(12, 22, 64, 0.14);
+}

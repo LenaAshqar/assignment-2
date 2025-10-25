@@ -1,8 +1,8 @@
 import { FiArrowUpRight } from 'react-icons/fi';
 import './Projects.css';
 
-const ProjectCard = ({ image, title, description, tags = [], year, link }) => (
-    <article className="project-card surface-card">
+const ProjectCard = ({ image, title, description, tags = [], year, link, className = '', ...rest }) => (
+    <article className={`project-card surface-card ${className}`.trim()} {...rest}>
         <div className="project-media">
             <img src={image} alt={title} />
             {year && <span className="project-year">{year}</span>}

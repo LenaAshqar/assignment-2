@@ -1,4 +1,5 @@
-import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { useEffect, useMemo, useState } from 'react';
+import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiMoon, FiSun } from 'react-icons/fi';
 import './App.css';
 import About from './components/about/About.jsx';
 import Projects from './components/projects/Projects.jsx';
@@ -20,7 +21,112 @@ const SOCIAL_LINKS = [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/leena-al-ashqar-507750264/', Icon: FiLinkedin }
 ];
 
+const resolveInitialTheme = () => {
+    if (typeof window === 'undefined') {
+        return 'dark';
+    }
+
+    const stored = window.localStorage.getItem('theme-preference');
+    if (stored === 'light' || stored === 'dark') {
+        return stored;
+    }
+
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)')?.matches;
+    return prefersDark ? 'dark' : 'light';
+};
+
+const getGreeting = () => {
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+        return 'Good morning';
+    }
+
+    if (hour < 17) {
+        return 'Good afternoon';
+    }
+
+    return 'Good evening';
+};
+
 function App() {
+    const [theme, setTheme] = useState(resolveInitialTheme);
+    const [greeting, setGreeting] = useState(getGreeting);
+
+    useEffect(() => {
+        const root = document.documentElement;
+        root.dataset.theme = theme;
+        if (document.body) {
+            document.body.dataset.theme = theme;
+        }
+        window.localStorage.setItem('theme-preference', theme);
+    }, [theme]);
+
+    useEffect(() => {
+        const interval = window.setInterval(() => {
+            setGreeting(getGreeting());
+        }, 60_000);
+
+        return () => window.clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -10%'
+            }
+        );
+
+        const registerElement = element => {
+            if (!(element instanceof HTMLElement) || element.dataset.animateBound === 'true') {
+                return;
+            }
+
+            observer.observe(element);
+            element.dataset.animateBound = 'true';
+        };
+
+        document.querySelectorAll('[data-animate]').forEach(registerElement);
+
+        const mutationObserver = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (!(node instanceof HTMLElement)) {
+                        return;
+                    }
+
+                    if (node.matches('[data-animate]')) {
+                        registerElement(node);
+                    }
+
+                    node.querySelectorAll?.('[data-animate]').forEach(registerElement);
+                });
+            });
+        });
+
+        mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+        return () => {
+            mutationObserver.disconnect();
+            observer.disconnect();
+        };
+    }, []);
+
+    const ThemeIcon = useMemo(() => (theme === 'dark' ? FiSun : FiMoon), [theme]);
+
+    const handleThemeToggle = () => {
+        setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    };
+
     return (
         <div className="app-shell">
             <ClickSpark
@@ -46,17 +152,31 @@ function App() {
                         ))}
                     </div>
 
-                    <a className="nav-cta" href="#contact">
-                        Let&apos;s talk
-                    </a>
+                    <div className="nav-actions">
+                        <button
+                            type="button"
+                            className="theme-toggle"
+                            onClick={handleThemeToggle}
+                            aria-label={`Activate ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                        >
+                            <ThemeIcon aria-hidden="true" />
+                        </button>
+
+                        <a className="nav-cta" href="#contact">
+                            Let&apos;s talk
+                        </a>
+                    </div>
                 </nav>
 
                 <div className="hero-grid">
-                    <div className="hero-copy">
+                    <div className="hero-copy" data-animate="fade-up">
                         <span className="eyebrow">Junior software engineering student</span>
 
                         <h1>
-                            Building human-centred experiences that balance delightful UI with resilient engineering.
+                            <span className="hero-greeting">{greeting}, I&apos;m Leena Al Ashqar.</span>
+                            <span className="hero-headline">
+                                Building human-centred experiences that balance delightful UI with resilient engineering.
+                            </span>
                         </h1>
 
                         <p className="hero-description">
@@ -80,7 +200,9 @@ function App() {
 
                         </div>
                     </div>
+                    <div data-animate="fade-up">
                     <LetterGlitch />
+                    </div>
                 </div>
             </header>
 

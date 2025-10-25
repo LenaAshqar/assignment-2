@@ -17,7 +17,7 @@ const highlights = [
 
 const About = () => (
     <section id="about" className="section about-section">
-        <div className="section-inner">
+        <div className="section-inner" data-animate="fade">
             <div className="section-header">
                 <span className="section-eyebrow">About</span>
                 <h2 className="section-title">Grounded in curiosity, driven by craft.</h2>
@@ -29,8 +29,13 @@ const About = () => (
             </div>
 
             <div className="about-grid">
-                {highlights.map(item => (
-                    <article key={item.title} className="about-card surface-card">
+                {highlights.map((item, index) => (
+                    <article
+                        key={item.title}
+                        className="about-card surface-card"
+                        data-animate="fade-up"
+                        style={{ '--reveal-index': index }}
+                    >
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
                     </article>
