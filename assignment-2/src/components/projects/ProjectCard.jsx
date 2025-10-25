@@ -25,7 +25,7 @@ const ProjectCard = ({ image, title, description, tags = [], year, link, classNa
                     </a>
                 ) : (
                     <span className="project-link project-link--muted">
-                        Case study coming soon
+                        Link to Project
                         <FiArrowUpRight aria-hidden="true" />
                     </span>
                 )}

@@ -12,9 +12,10 @@ const projects = [
         title: 'Secure Webchat',
         description:
             'An authenticated messaging platform that encrypts conversations end-to-end with ChaCha20-Poly1305 and thoughtful UX touches.',
-        year: 2024,
+        year: 2025,
         category: 'Web',
-        tags: ['React', 'Node.js', 'WebCrypto']
+        language: 'JavaScript',
+        tags: ['React', 'Node.js', 'Flask']
     },
     {
         image: number2,
@@ -22,26 +23,29 @@ const projects = [
         description:
             'A collaborative tutoring hub that connects students and mentors with scheduling, shared resources, and analytics dashboards.',
         year: 2023,
-        category: 'Application',
-        tags: ['TypeScript', 'Firebase', 'Design Systems']
+        language: 'Java',
+        category: 'Applications',
+        tags: ['Java', 'SQL Database']
     },
     {
         image: number3,
         title: 'Obesity Classification Model',
         description:
-            'A machine-learning project predicting obesity trends using lifestyle indicators and explainable visualisations.',
-        year: 2023,
+            'A machine-learning model trained to predict obesity trends using lifestyle indicators.',
+        year: 2024,
         category: 'Data Science',
-        tags: ['Python', 'scikit-learn', 'Data Viz']
+        language: 'Java',
+        tags: ['Python', 'scikit-learn', 'Pandas']
     },
     {
         image: number4,
-        title: 'Image Compression',
+        title: 'Ticketorium',
         description:
-            'A high-performance compressor that recursively quadrants images to balance clarity with file size at scale.',
-        year: 2022,
-        category: 'Systems',
-        tags: ['C++', 'Algorithms', 'Performance']
+            'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
+        year: 2025,
+        category: 'Web',
+        language: 'Java',
+        tags: ['Web', 'React', 'Tailwind']
     }
 ];
 
