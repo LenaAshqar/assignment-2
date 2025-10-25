@@ -23,7 +23,13 @@ const SOCIAL_LINKS = [
 function App() {
     return (
         <div className="app-shell">
-            <ClickSpark />
+            <ClickSpark
+                sparkColor='#fff'
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+            >
             <div className="app-background" aria-hidden="true" />
 
             <header className="hero" id="home">
@@ -100,6 +106,7 @@ function App() {
                 <Projects />
                 <Contact />
             </main>
+            </ClickSpark>
         </div>
     );
 }
