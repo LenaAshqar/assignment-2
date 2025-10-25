@@ -49,7 +49,7 @@ const Skills = () => (
                 <span className="section-eyebrow">Skills</span>
                 <h2 className="section-title">Tools that turn ideas into polished products.</h2>
                 <p className="section-description">
-                    From back-end architecture to pixel-level polish, I combine analytical thinking with design sensitivity to
+                    From back-end architecture to a polished front-end, I combine analytical thinking with design sensitivity to
                     deliver dependable, beautiful software.
                 </p>
             </div>

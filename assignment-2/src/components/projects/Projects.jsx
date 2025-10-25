@@ -63,24 +63,24 @@ const projects = [
     {
         imageDark: project5Dark,
         imageLight: project5Light,
-        title: 'Ticketorium1',
+        title: 'Schedule Visualizer',
         description:
-            'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
+            'An application that draws your daily route for you. Just enter your course section CRNs and follow the route displayed on the map.',
         year: 2025,
-        category: 'Web',
-        language: 'Java',
-        tags: ['Web', 'React', 'Tailwind']
+        category: 'Application',
+        language: 'VB .NET',
+        tags: ['OOP', 'VB .NET', 'Graphics']
     },
     {
         imageDark: project6Dark,
         imageLight: project6Light,
-        title: 'Ticketorium2',
+        title: 'Train Reservation Website',
         description:
-            'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
-        year: 2025,
+            'A website for buying train tickets made to practice integrating a fully functioning database with a web application.',
+        year: 2024,
         category: 'Web',
-        language: 'Java',
-        tags: ['Web', 'React', 'Tailwind']
+        language: 'JavaScript',
+        tags: ['Web', 'SQL', 'Database']
     }
 ];
 
