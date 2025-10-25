@@ -63,43 +63,56 @@
 ## 🧠 6. AI Enhancement Feature in the Portfolio
 
 ### **Feature:** ✨ *UI Design*
-
 - **AI Usage:** Codex took my already existing project and changed the design to match the example sites I provided.
 - **Implementation:**
     - I provided the link to my repository and some portfolio sites I liked the designs of.
     - AI-generated a version of my code with design elements that match what I was aiming for without strictly copying the examples I provided.
+- **Prompt:** Transform the portfolio in this respository to match the following example sites in terms of design without strictly copying any of them. (After this I did not need to include my repository link with other prompts.)
 - **Value:** Gives the portfolio a better looking design than what I can come up with on my own.
-###
-### **Feature:** 🕒 *Smart Greeting & Form Assistance*
 
+###
+### **Feature:** 🕒 *Smart Greeting Form Assistance*
 - **AI Usage:** Codex generated dynamic greeting logic and suggested contextual form helper text.
 - **Implementation:**
     - Greeting changes based on local time (`Good morning`, `Good afternoon`, `Good evening`).
     - AI-drafted placeholder/help text for contact form fields (e.g., “Write your message here…”).
+- **Prompt:** Implement a smart greeting that changes based on time of day.
 - **Value:** Makes the portfolio more interactive and personalized while enhancing user experience.
+
+###
+### **Feature:** 📝 *Form Assistance*
+- **AI Usage:** Codex generated contextual form helper text and input validation.
+- **Implementation:**
+    - Form validation to prevent empty inputs and invalid emails.
+    - AI generated the logic for the validation and implemented style elements that match the already existing design.
+- **Prompt:** Implement a simple front-end only form validation on the already provided form in the contact section.
+- **Value:** Also makes the portfolio more interactive while enhancing user experience.
+
 ###
 ### **Feature:** 💡 *Light/Dark Theme Toggles*
-
 - **AI Usage:** Codex generated logic to implement a light/dark theme toggle.
 - **Implementation:**
     - Toggle state is stored in local storage to remember the preferred state on refresh.
     - AI helped in providing the logic and refining CSS classes and introducing variables to easily switch between themes.
+- **Prompt:** Include a light/dark theme button in the nav bar and implement any necessary logic.
 - **Value:** Another way to introduce interactivity to the portfolio and improve UX.
+
 ###
 ### **Feature:** 🧩 *Project Filtering and Sorting*
-
 - **AI Usage:** Codex generated filter and sort buttons that match the portfolio's design with easy to expand logic.
 - **Implementation:**
     - Filters are dynamically generated based on categories provided in the project cards and sorting works in three ways based date and title.
     - AI suggested the dynamic filter creation and provided the logic for both filters and sorting and I modified it to match my code.
+- **Prompt:** Implement a dynamic way to filter and sort through projects.
 - **Value:** Makes the portfolio easier to traverse thus impacting user experience positively.
+
 ###
 ### **Feature:** ✍️ *Debugging issues from integrating Reactbits components*
-
 - **AI Usage:** ChatGPT debugged any issues faced while integrating Reactbits components and helped in component customization.
 - **Implementation:**
     - Component code is provided on Reactbits website and I integrated it on my own at first then fixed any reference or styling issues.
     - AI found the parts in my code causing errors and suggested multiple solutions which I then chose from depending on what best matches my code.
+- **Prompt:** either a copy of errors messages and relevant code or screenshots of unwanted element layout and what style elements to use or change
 - **Value:** Saves time on code debugging.
 ---
 
