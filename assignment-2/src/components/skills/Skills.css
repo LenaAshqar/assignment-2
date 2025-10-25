@@ -1,23 +1,80 @@
-.container-skills {
-    background: linear-gradient(135deg, rgba(224, 234, 252, 0.11), rgba(231, 239, 255, 0.08));
-    padding: 20px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 800px;
-    height: 250px;
-    border-radius: 20px;
+.skills-section .section-header {
+    align-items: flex-start;
 }
 
-.container-skills h3 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #ffffff;
-}
-
-.skills-inner-container {
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 5px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.25rem, 3.5vw, 2.25rem);
+}
+
+.skill-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(0, 104, 243, 0.32), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.skill-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.skill-card:hover,
+.skill-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 50px rgba(4, 6, 22, 0.45);
+}
+
+.skill-card:hover::before,
+.skill-card:focus-within::before {
+    opacity: 1;
+}
+
+.skill-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    place-items: center;
+}
+
+.skill-icon img {
+    width: 2.2rem;
+    height: 2.2rem;
+    object-fit: contain;
+}
+
+.skill-copy {
+    position: relative;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.skill-copy h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+}
+
+.skill-copy p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.65;
 }

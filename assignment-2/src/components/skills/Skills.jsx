@@ -1,43 +1,71 @@
-import React from "react";
-import pythonLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/python.png";
-import javaLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/java.png";
-import sqlLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/sql.png";
-import htmlLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/html.png";
-import cssLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/css.png";
-import jsLogo from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/js.png";
+import pythonLogo from '../../assets/python.png';
+import javaLogo from '../../assets/java.png';
+import sqlLogo from '../../assets/sql.png';
+import htmlLogo from '../../assets/html.png';
+import cssLogo from '../../assets/css.png';
+import jsLogo from '../../assets/js.png';
+import './Skills.css';
 
-import LogoLoop from "./LogoLoop.jsx";
-import "./Skills.css";
+const skills = [
+    {
+        icon: pythonLogo,
+        name: 'Python',
+        description: 'APIs, automation, and data tooling crafted with clarity and tests.'
+    },
+    {
+        icon: javaLogo,
+        name: 'Java',
+        description: 'Object-oriented design and backend services with Spring foundations.'
+    },
+    {
+        icon: sqlLogo,
+        name: 'SQL',
+        description: 'Efficient queries, modelling, and reporting for analytics-ready datasets.'
+    },
+    {
+        icon: htmlLogo,
+        name: 'HTML',
+        description: 'Accessible semantic markup that keeps interfaces intuitive for everyone.'
+    },
+    {
+        icon: cssLogo,
+        name: 'CSS',
+        description: 'Responsive layouts, fluid motion, and refined visual languages.'
+    },
+    {
+        icon: jsLogo,
+        name: 'JavaScript',
+        description: 'Interactive front-end experiences with a focus on performance and DX.'
+    }
+];
 
-const Skills = () => {
-    const skills = [
-        { src: pythonLogo, alt: "Python" },
-        { src: javaLogo, alt: "Java" },
-        { src: sqlLogo, alt: "SQL" },
-        { src: htmlLogo, alt: "HTML" },
-        { src: cssLogo, alt: "CSS" },
-        { src: jsLogo, alt: "JavaScript" },
-    ];
-
-    return (
-        <section id="skills" className="container-skills">
-            <h3>Skills</h3>
-            <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
-                <LogoLoop
-                    logos={skills}
-                    speed={120}
-                    direction="left"
-                    logoHeight={48}
-                    gap={40}
-                    pauseOnHover
-                    scaleOnHover
-                    fadeOut
-                    fadeOutColor="#ffffff"
-                    ariaLabel="Technology partners"
-                />
+const Skills = () => (
+    <section id="skills" className="section skills-section">
+        <div className="section-inner">
+            <div className="section-header">
+                <span className="section-eyebrow">Skills</span>
+                <h2 className="section-title">Tools that turn ideas into polished products.</h2>
+                <p className="section-description">
+                    From back-end architecture to pixel-level polish, I combine analytical thinking with design sensitivity to
+                    deliver dependable, beautiful software.
+                </p>
             </div>
-        </section>
-    );
-};
+
+            <div className="skills-grid">
+                {skills.map(skill => (
+                    <article key={skill.name} className="skill-card surface-card">
+                        <span className="skill-icon">
+                            <img src={skill.icon} alt={`${skill.name} logo`} />
+                        </span>
+                        <div className="skill-copy">
+                            <h3>{skill.name}</h3>
+                            <p>{skill.description}</p>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+);
 
 export default Skills;

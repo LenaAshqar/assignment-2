@@ -1,63 +1,64 @@
-// src/components/Projects.jsx
-import React from "react";
-import number1 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number1.png";
-import number2 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number2.png";
-import number3 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number3.png";
-import number4 from "C:/Users/Administrator/WebstormProjects/assignment-2/assignment-2/src/assets/number4.png";
-import ProjectCard from "./ProjectCard.jsx";
-import "./Projects.css";
+import number1 from '../../assets/number1.png';
+import number2 from '../../assets/number2.png';
+import number3 from '../../assets/number3.png';
+import number4 from '../../assets/number4.png';
+import './Projects.css';
+import ProjectCard from './ProjectCard.jsx';
 
+const projects = [
+    {
+        image: number1,
+        title: 'Secure Webchat',
+        description:
+            'An authenticated messaging platform that encrypts conversations end-to-end with ChaCha20-Poly1305 and thoughtful UX touches.',
+        year: '2024',
+        tags: ['React', 'Node.js', 'WebCrypto']
+    },
+    {
+        image: number2,
+        title: 'Tutor Link',
+        description:
+            'A collaborative tutoring hub that connects students and mentors with scheduling, shared resources, and analytics dashboards.',
+        year: '2023',
+        tags: ['TypeScript', 'Firebase', 'Design Systems']
+    },
+    {
+        image: number3,
+        title: 'Obesity Classification Model',
+        description:
+            'A machine-learning project predicting obesity trends using lifestyle indicators and explainable visualisations.',
+        year: '2023',
+        tags: ['Python', 'scikit-learn', 'Data Viz']
+    },
+    {
+        image: number4,
+        title: 'Image Compression',
+        description:
+            'A high-performance compressor that recursively quadrants images to balance clarity with file size at scale.',
+        year: '2022',
+        tags: ['C++', 'Algorithms', 'Performance']
+    }
+];
 
-const Projects = () => {
-    const projects = [
-        {
-            img: number1,
-            title: "Secure Webchat",
-            description:
-                "An authenticated web application for encrypting text messages using ChaCha20-Poly1305.",
-        },
-        {
-            img: number2,
-            title: "Tutor Link",
-            description:
-                "A tutoring program to connect tutors with students including an e-book and resource library.",
-        },
-        {
-            img: number3,
-            title: "Obesity Classification Model",
-            description:
-                "A classification model that can predict obesity on factors outside of height and weight or BMI.",
-        },
-        {
-            img: number4,
-            title: "Image Compression",
-            description:
-                "A computationally efficient image compressor that recursively divides the image in quarters.",
-        },
-        {
-            img: number4,
-            title: "Example",
-            description:
-                "A computationally efficient image compressor that recursively divides the image in quarters.",
-        },
-        {
-            img: number4,
-            title: "Example",
-            description:
-                "A computationally efficient image compressor that recursively divides the image in quarters.",
-        },
-    ];
+const Projects = () => (
+    <section id="projects" className="section projects-section">
+        <div className="section-inner">
+            <div className="section-header">
+                <span className="section-eyebrow">Selected work</span>
+                <h2 className="section-title">Projects shaped by experimentation and polish.</h2>
+                <p className="section-description">
+                    Each project blends rigorous technical foundations with visual storytelling to create useful, dependable
+                    experiences.
+                </p>
+            </div>
 
-    return (
-        <section id="projects" className="container-projects">
-            <h3>Projects</h3>
             <div className="project-grid">
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
+                {projects.map(project => (
+                    <ProjectCard key={project.title} {...project} />
                 ))}
             </div>
-        </section>
-    );
-};
+        </div>
+    </section>
+);
 
 export default Projects;
