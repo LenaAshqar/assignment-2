@@ -1,4 +1,5 @@
 import './Contact.css';
+import ClickSpark from "../clickspark/ClickSpark.jsx";
 
 const Contact = () => (
     <section id="contact" className="section contact-section">
@@ -15,7 +16,7 @@ const Contact = () => (
                         <ul className="contact-details">
                             <li>Based in Dhahran, Saudi Arabia.</li>
                             <li>
-                                Prefer email? <a href="mailto:abdulhadi@kfupm.edu.sa">abdulhadi@kfupm.edu.sa</a>
+                                Prefer email? <a href="mailto:leena.alashqar2@gmail.com">leena.alashqar2@gmail.com</a>
                             </li>
                         </ul>
                     </div>

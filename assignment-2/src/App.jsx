@@ -5,6 +5,7 @@ import About from './components/about/About.jsx';
 import Projects from './components/projects/Projects.jsx';
 import Skills from './components/skills/Skills.jsx';
 import Contact from './components/contact/Contact.jsx';
+import ClickSpark from './components/clickspark/ClickSpark.jsx';
 
 const NAV_ITEMS = [
     { label: 'About', href: '#about' },
@@ -14,14 +15,15 @@ const NAV_ITEMS = [
 ];
 
 const SOCIAL_LINKS = [
-    { label: 'Email', href: 'mailto:abdulhadi@kfupm.edu.sa', Icon: FiMail },
-    { label: 'GitHub', href: 'https://github.com/', Icon: FiGithub },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: FiLinkedin }
+    { label: 'Email', href: 'mailto:leena.alashqar2@gmail.com', Icon: FiMail },
+    { label: 'GitHub', href: 'https://github.com/LenaAshqar/', Icon: FiGithub },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/leena-al-ashqar-507750264/', Icon: FiLinkedin }
 ];
 
 function App() {
     return (
         <div className="app-shell">
+            <ClickSpark />
             <div className="app-background" aria-hidden="true" />
 
             <header className="hero" id="home">
@@ -45,16 +47,14 @@ function App() {
 
                 <div className="hero-grid">
                     <div className="hero-copy">
-                        <span className="eyebrow">Junior software engineer</span>
+                        <span className="eyebrow">Junior software engineering student</span>
 
                         <h1>
                             Building human-centred experiences that balance delightful UI with resilient engineering.
                         </h1>
 
                         <p className="hero-description">
-                            I’m a KFUPM computer science student who loves exploring how design, security, and research
-                            intersect. From secure messaging systems to data-driven models, I enjoy crafting products
-                            that feel polished and purposeful.
+                            Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
                         </p>
 
                         <div className="hero-actions">
@@ -85,8 +85,7 @@ function App() {
                         <div className="hero-highlight" id="hero-highlight">
                             <h2>Curious by design.</h2>
                             <p>
-                                Currently experimenting with quantum computing concepts while building inclusive, secure
-                                digital products.
+                                Interested in exploring the diverse domains in which software can be applied and exploring the world of quantum computing.
                             </p>
                         </div>
 
