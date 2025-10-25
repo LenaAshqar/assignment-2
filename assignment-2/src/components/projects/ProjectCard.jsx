@@ -78,7 +78,7 @@ const ProjectCard = ({
                             </a>
                         ) : (
                             <span className="project-link project-link--muted">
-                                Case study coming soon
+                                Link to Project Details
                                 <FiArrowUpRight aria-hidden="true" />
                             </span>
                         )}

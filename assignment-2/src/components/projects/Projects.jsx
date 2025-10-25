@@ -63,7 +63,7 @@ const projects = [
     {
         imageDark: project5Dark,
         imageLight: project5Light,
-        title: 'Ticketorium',
+        title: 'Ticketorium1',
         description:
             'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
         year: 2025,
@@ -74,7 +74,7 @@ const projects = [
     {
         imageDark: project6Dark,
         imageLight: project6Light,
-        title: 'Ticketorium',
+        title: 'Ticketorium2',
         description:
             'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
         year: 2025,
