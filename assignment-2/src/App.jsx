@@ -49,9 +49,6 @@ const getGreeting = () => {
     return 'Good evening';
 };
 
-const ANIMATIONS_READY_CLASS = 'animations-ready';
-let animationReadyMounts = 0;
-
 function App() {
     const [theme, setTheme] = useState(resolveInitialTheme);
     const [greeting, setGreeting] = useState(getGreeting);
@@ -204,16 +201,16 @@ function App() {
                                 </a>
 
                                 <div className="social-links" role="list">
-                                    {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                                    {SOCIAL_LINKS.map(link => (
                                         <a
-                                            key={label}
-                                            href={href}
-                                            target={href.startsWith('http') ? '_blank' : undefined}
-                                            rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
-                                            aria-label={label}
+                                            key={link.label}
+                                            href={link.href}
+                                            target={link.href.startsWith('http') ? '_blank' : undefined}
+                                            rel={link.href.startsWith('http') ? 'noreferrer noopener' : undefined}
+                                            aria-label={link.label}
                                             role="listitem"
                                         >
-                                            <Icon aria-hidden="true" />
+                                            <link.Icon aria-hidden="true" />
                                         </a>
                                     ))}
                                 </div>
@@ -228,7 +225,7 @@ function App() {
             <main className="page-content">
                 <About />
                 <Skills />
-                <Projects />
+                <Projects theme={theme} />
                 <Contact />
             </main>
             </ClickSpark>

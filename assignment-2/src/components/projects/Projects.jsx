@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import project1Light from '../../assets/number1-dark.png';
 import project1Dark from '../../assets/number1.png';
 import project2Light from '../../assets/number2-dark.png';
@@ -100,7 +100,6 @@ const sortProjects = (items, sortKey) => {
 const Projects = ({ theme = 'dark' }) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [sortKey, setSortKey] = useState('latest');
-    const [expandedProject, setExpandedProject] = useState(null);
 
     const categories = useMemo(() => ['All', ...new Set(projects.map(project => project.category))], []);
 
@@ -111,10 +110,6 @@ const Projects = ({ theme = 'dark' }) => {
                 : projects.filter(project => project.category === activeFilter);
 
         return sortProjects(filtered, sortKey);
-    }, [activeFilter, sortKey]);
-
-    useEffect(() => {
-        setExpandedProject(null);
     }, [activeFilter, sortKey]);
 
     return (
@@ -162,6 +157,7 @@ const Projects = ({ theme = 'dark' }) => {
                                 key={project.title}
                                 {...project}
                                 year={String(project.year)}
+                                theme={theme}
                             />
                         ))}
                     </div>
