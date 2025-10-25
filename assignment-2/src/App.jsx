@@ -49,9 +49,20 @@ const getGreeting = () => {
     return 'Good evening';
 };
 
+const ANIMATIONS_READY_CLASS = 'animations-ready';
+let animationReadyMounts = 0;
+
 function App() {
     const [theme, setTheme] = useState(resolveInitialTheme);
     const [greeting, setGreeting] = useState(getGreeting);
+
+    useEffect(() => {
+        document.documentElement.classList.add('has-js');
+
+        return () => {
+            document.documentElement.classList.remove('has-js');
+        };
+    }, []);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -71,6 +82,10 @@ function App() {
     }, []);
 
     useEffect(() => {
+        if (typeof window === 'undefined') {
+            return undefined;
+        }
+
         const observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
@@ -105,6 +120,14 @@ function App() {
 
         document.querySelectorAll('[data-animate]').forEach(registerElement);
 
+        const root = document.documentElement;
+        let animationsReadyApplied = false;
+        const rafId = window.requestAnimationFrame(() => {
+            animationsReadyApplied = true;
+            animationReadyMounts += 1;
+            root.classList.add(ANIMATIONS_READY_CLASS);
+        });
+
         const mutationObserver = new MutationObserver(mutations => {
             mutations.forEach(mutation => {
                 mutation.addedNodes.forEach(node => {
@@ -121,11 +144,20 @@ function App() {
             });
         });
 
-        mutationObserver.observe(document.body, { childList: true, subtree: true });
+        if (document.body) {
+            mutationObserver.observe(document.body, { childList: true, subtree: true });
+        }
 
         return () => {
+            window.cancelAnimationFrame(rafId);
             mutationObserver.disconnect();
             observer.disconnect();
+            if (animationsReadyApplied) {
+                animationReadyMounts = Math.max(0, animationReadyMounts - 1);
+                if (animationReadyMounts === 0) {
+                    root.classList.remove(ANIMATIONS_READY_CLASS);
+                }
+            }
         };
     }, []);
 
@@ -208,8 +240,8 @@ function App() {
 
                         </div>
                     </div>
-                    <div data-animate="fade-up">
-                    <LetterGlitch />
+                    <div className="letter-glitch-card" data-animate="fade-up">
+                        <LetterGlitch className="letter-glitch" />
                     </div>
                 </div>
             </header>

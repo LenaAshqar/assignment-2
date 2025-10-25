@@ -1,7 +1,6 @@
 .app-shell {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
     color: var(--text-primary);
     background-color: var(--background);
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -99,6 +98,25 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(2.5rem, 6vw, 4.5rem);
     align-items: center;
+}
+
+.letter-glitch-card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: clamp(260px, 32vw, 420px);
+    border: 1px solid var(--surface-border);
+    background: var(--surface-background);
+    box-shadow: 0 28px 60px rgba(5, 3, 20, 0.35);
+}
+
+.letter-glitch {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
 }
 
 .theme-toggle {
@@ -229,6 +247,7 @@
 }
 
 .section {
+    display:flex;
     width: 100%;
     display: flex;
     justify-content: center;
