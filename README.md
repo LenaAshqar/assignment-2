@@ -23,4 +23,16 @@ This project implements a responsive portfolio web application to showcase proje
 ## Setup & Local Run  
 1. Clone the repository  
    ```bash  
-   git clone https://github.com/LenaAshqar/assignment-2.git  
+   git clone https://github.com/LenaAshqar/assignment-2.git
+
+2. Cd into the project directory
+   ```bash  
+   cd "filepath/assignemnt-2"
+
+3. Install npm  
+   ```bash  
+   npm install
+
+4. Run npm and open generated link  
+   ```bash  
+   npm run dev    
