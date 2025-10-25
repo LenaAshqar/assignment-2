@@ -1,5 +1,14 @@
 {
-  "dependencies": {
-    "gsap": "^3.13.0"
+  "name": "assignment-2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://LenaAshqar.github.io/assignment-2",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
-}
