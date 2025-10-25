@@ -210,10 +210,10 @@ function App() {
 
                 <div className="hero-grid">
                     <div className="hero-copy" data-animate="fade-up">
-                        <span className="eyebrow">Junior software engineering student</span>
+                        <span className="hero-greeting">{greeting}, I&apos;m Leena Al Ashqar.</span>
 
                         <h1>
-                            <span className="hero-greeting">{greeting}, I&apos;m Leena Al Ashqar.</span>
+                            <span className="eyebrow">Junior software engineering student</span>
                             <span className="hero-headline">
                                 Building human-centred experiences that balance delightful UI with resilient engineering.
                             </span>
