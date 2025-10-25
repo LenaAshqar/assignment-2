@@ -183,8 +183,15 @@ const LetterGlitch = ({
         const observer = new MutationObserver(updateBgColor);
         observer.observe(document.documentElement, {
             attributes: true,
-            attributeFilter: ['style', 'class']
+            attributeFilter: ['style', 'class', 'data-theme']
         });
+
+        if (document.body) {
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['style', 'class', 'data-theme']
+            });
+        }
 
         return () => observer.disconnect();
     }, []);
@@ -197,22 +204,29 @@ const LetterGlitch = ({
         resizeCanvas();
         animate();
 
+        const parent = canvas.parentElement;
         let resizeTimeout;
 
-        const handleResize = () => {
+        const scheduleResize = () => {
             clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
+            resizeTimeout = window.setTimeout(() => {
                 cancelAnimationFrame(animationRef.current);
                 resizeCanvas();
                 animate();
             }, 100);
         };
 
-        window.addEventListener('resize', handleResize);
+        const resizeObserver = parent && typeof ResizeObserver !== 'undefined'
+            ? new ResizeObserver(scheduleResize)
+            : null;
+        resizeObserver?.observe(parent);
+        window.addEventListener('resize', scheduleResize);
 
         return () => {
             cancelAnimationFrame(animationRef.current);
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', scheduleResize);
+            resizeObserver?.disconnect();
+            clearTimeout(resizeTimeout);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [glitchSpeed, smooth]);

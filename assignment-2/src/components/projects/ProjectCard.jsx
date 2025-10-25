@@ -1,15 +1,18 @@
-import { useId, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { FiArrowUpRight, FiChevronDown } from 'react-icons/fi';
 import './Projects.css';
 
 const ProjectCard = ({
                          image,
+                         imageDark,
+                         imageLight,
                          title,
                          description,
                          tags = [],
                          year,
                          link,
                          className = '',
+                         theme = 'dark',
                          isExpanded: isExpandedProp,
                          onToggle,
                          ...rest
@@ -27,10 +30,24 @@ const ProjectCard = ({
         }
     };
 
+    const resolvedImage = useMemo(() => {
+        if (theme === 'light') {
+            return imageLight ?? image ?? imageDark;
+        }
+
+        return imageDark ?? image ?? imageLight;
+    }, [theme, image, imageDark, imageLight]);
+
     return (
         <article className={`project-card surface-card ${className}`.trim()} {...rest}>
             <div className="project-media">
-                <img src={image} alt={title} />
+                {resolvedImage ? (
+                    <img src={resolvedImage} alt={title} loading="lazy" />
+                        ) : (
+                    <div className="project-media--placeholder" aria-hidden="true">
+                        <span>{title.slice(0, 1)}</span>
+                    </div>
+                        )}
                 {year && <span className="project-year">{year}</span>}
             </div>
             <div className="project-body">
@@ -68,7 +85,7 @@ const ProjectCard = ({
                     </div>
                 </div>
             </div>
-        </article>
+    </article>
     );
 };
 export default ProjectCard;

@@ -127,6 +127,25 @@
     transition: transform 0.45s ease;
 }
 
+.project-media--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, rgba(250, 2, 126, 0.22), rgba(0, 104, 243, 0.28));
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+[data-theme='light'] .project-media--placeholder {
+    background: linear-gradient(135deg, rgba(0, 104, 243, 0.18), rgba(255, 99, 178, 0.18));
+    color: rgba(30, 30, 70, 0.85);
+}
+
 .project-card:hover .project-media img,
 .project-card:focus-within .project-media img {
     transform: scale(1.05);

@@ -1,14 +1,24 @@
 import { useEffect, useMemo, useState } from 'react';
-import number1 from '../../assets/number1.png';
-import number2 from '../../assets/number2.png';
-import number3 from '../../assets/number3.png';
-import number4 from '../../assets/number4.png';
+import project1Light from '../../assets/number1-dark.png';
+import project1Dark from '../../assets/number1.png';
+import project2Light from '../../assets/number2-dark.png';
+import project2Dark from '../../assets/number2.png';
+import project3Light from '../../assets/number3-dark.png';
+import project3Dark from '../../assets/number3.png';
+import project4Light from '../../assets/number4-dark.png';
+import project4Dark from '../../assets/number4.png';
+import project5Light from '../../assets/number5-dark.png';
+import project5Dark from '../../assets/number5.png';
+import project6Light from '../../assets/number6-dark.png';
+import project6Dark from '../../assets/number6.png';
+
 import './Projects.css';
 import ProjectCard from './ProjectCard.jsx';
 
 const projects = [
     {
-        image: number1,
+        imageDark: project1Dark,
+        imageLight: project1Light,
         title: 'Secure Webchat',
         description:
             'An authenticated messaging platform that encrypts conversations end-to-end with ChaCha20-Poly1305 and thoughtful UX touches.',
@@ -18,7 +28,8 @@ const projects = [
         tags: ['React', 'Node.js', 'Flask']
     },
     {
-        image: number2,
+        imageDark: project2Dark,
+        imageLight: project2Light,
         title: 'Tutor Link',
         description:
             'A collaborative tutoring hub that connects students and mentors with scheduling, shared resources, and analytics dashboards.',
@@ -28,7 +39,8 @@ const projects = [
         tags: ['Java', 'SQL Database']
     },
     {
-        image: number3,
+        imageDark: project3Dark,
+        imageLight: project3Light,
         title: 'Obesity Classification Model',
         description:
             'A machine-learning model trained to predict obesity trends using lifestyle indicators.',
@@ -38,7 +50,30 @@ const projects = [
         tags: ['Python', 'scikit-learn', 'Pandas']
     },
     {
-        image: number4,
+        imageDark: project4Dark,
+        imageLight: project4Light,
+        title: 'Ticketorium',
+        description:
+            'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
+        year: 2025,
+        category: 'Web',
+        language: 'Java',
+        tags: ['Web', 'React', 'Tailwind']
+    },
+    {
+        imageDark: project5Dark,
+        imageLight: project5Light,
+        title: 'Ticketorium',
+        description:
+            'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
+        year: 2025,
+        category: 'Web',
+        language: 'Java',
+        tags: ['Web', 'React', 'Tailwind']
+    },
+    {
+        imageDark: project6Dark,
+        imageLight: project6Light,
         title: 'Ticketorium',
         description:
             'A website for all your academia related ticketing needs. Buy tickets for academic events or list your graduation tickets up for bidding.',
@@ -62,7 +97,7 @@ const sortProjects = (items, sortKey) => {
     }
 };
 
-const Projects = () => {
+const Projects = ({ theme = 'dark' }) => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [sortKey, setSortKey] = useState('latest');
     const [expandedProject, setExpandedProject] = useState(null);
