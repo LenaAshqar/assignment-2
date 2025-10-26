@@ -3,6 +3,10 @@
 > ✨ A simple, responsive **personal portfolio web application** built as part of the SWE 363 course.  
 > 🌗 Featuring a **dark/light theme**, time-based greetings, project filtering and sorting, simple form validation, and modern responsive design.
 
+--- 
+## 🌍 Live Link 
+### https://lenaashqar.vercel.app/
+
 ---
 
 ## 📝 Project Description
